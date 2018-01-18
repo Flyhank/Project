@@ -18,15 +18,17 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:background="@android:color/holo_blue_dark"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="327dp">
+        tools:layout_editor_absoluteY="277dp">
 
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_weight="1"
+            android:onClick="clcikFone4"
             android:text="Button" />
 
         <Button
@@ -34,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_weight="1"
+            android:onClick="clcikFone5"
             android:text="Button" />
 
         <Button
@@ -41,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_weight="1"
+            android:onClick="clcikFone6"
             android:text="Button" />
     </LinearLayout>
 
@@ -50,29 +54,34 @@
         android:layout_height="54dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:background="#98e1e2"
+        android:onClick="clickSetting"
         android:text="手機設定"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="156dp"
+        android:layout_height="150dp"
+        android:background="@android:color/holo_blue_dark"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="154dp">
+        tools:layout_editor_absoluteY="108dp">
 
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:onClick="clcikFone1"
             android:text="Button" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="150dp"
             android:layout_weight="1"
+            android:onClick="clcikFone2"
             android:text="Button" />
 
         <Button
@@ -80,28 +89,49 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_weight="1"
+            android:onClick="clcikFone3"
             android:text="Button" />
 
     </LinearLayout>
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="#ed6a6a"
+        android:onClick="clickSOS"
         android:text="求救 !!!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="140dp"
+        android:layout_height="77dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:background="#9cbfea"
+        android:onClick="clcikFun"
         android:text="其他功能"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="95dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:background="#f3a8ae"
+        android:onClick="clickContact"
+        android:text="設定聯絡人"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="300dp" />
 
 </android.support.constraint.ConstraintLayout>
