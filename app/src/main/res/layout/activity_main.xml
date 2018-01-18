@@ -11,8 +11,8 @@
         android:layout_width="250dp"
         android:layout_height="80dp"
         android:layout_weight="1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="1dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="4dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -20,7 +20,7 @@
         android:layout_height="150dp"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="269dp">
+        tools:layout_editor_absoluteY="327dp">
 
         <Button
             android:id="@+id/button4"
@@ -59,7 +59,7 @@
         android:layout_height="156dp"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="98dp">
+        tools:layout_editor_absoluteY="154dp">
 
         <Button
             android:id="@+id/button1"
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:layout_marginStart="16dp"
-        android:text="求救"
+        android:text="求救 !!!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
