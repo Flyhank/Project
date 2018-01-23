@@ -9,11 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.n9s.flyjet.project.data.Phone;
+import com.n9s.flyjet.project.data.PhoneFileDAO;
 
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity
 {
+    public static PhoneFileDAO dao;
+    ListView lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -21,7 +24,7 @@ public class ListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-
+        dao = new PhoneFileDAO(this);
     }
 
     @Override
@@ -36,7 +39,7 @@ public class ListActivity extends AppCompatActivity
         {
             phoneNames.add(s.name);
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListActivity.this,
                 android.R.layout.simple_list_item_1, phoneNames);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -45,10 +48,21 @@ public class ListActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)   //i是position
             //******點擊任一筆資料時根據ViewList上的位置,而非任何資料 *********
             {
-                Intent it = new Intent(MainActivity.this, DetailActivity.class);
+                Intent it = new Intent(ListActivity.this, DetailActivity.class);
                 it.putExtra("id", dao.getList().get(i).id);     //取出位置內的id值
                 startActivity(it);
             }
         });
+    }
+
+    public void clickBack1(View v)
+    {
+        finish();
+    }
+
+    public void clickclickAdd1(View v)
+    {
+        Intent it = new Intent(ListActivity.this, AddActivity.class);
+        startActivity(it);
     }
 }
