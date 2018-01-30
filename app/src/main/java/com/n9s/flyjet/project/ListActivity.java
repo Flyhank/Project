@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity
 {
-    public static PhoneFileDAO dao;
+    public static PhoneFileDAO dao; //???????
     ListView lv;
 
     @Override
@@ -24,7 +24,7 @@ public class ListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        dao = new PhoneFileDAO(this);
+        dao = new PhoneFileDAO(this);   //?????????
     }
 
     @Override
@@ -35,9 +35,9 @@ public class ListActivity extends AppCompatActivity
         lv = (ListView) findViewById(R.id.listView);
         ArrayList<String> phoneNames = new ArrayList<>();
 
-        for (Phone s : dao.getList()) //getList:整個資料庫資料
+        for (Phone p : dao.getList()) //getList:整個資料庫資料
         {
-            phoneNames.add(s.name);
+            phoneNames.add(p.name);
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListActivity.this,
                 android.R.layout.simple_list_item_1, phoneNames);
@@ -55,14 +55,17 @@ public class ListActivity extends AppCompatActivity
         });
     }
 
+
     public void clickBack1(View v)
     {
         finish();
     }
 
-    public void clickclickAdd1(View v)
+/*    public void clickclickAdd1(View v)
     {
         Intent it = new Intent(ListActivity.this, AddActivity.class);
         startActivity(it);
     }
+*/
+
 }

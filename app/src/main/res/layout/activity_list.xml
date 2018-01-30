@@ -18,23 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button16"
-        android:layout_width="130dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="8dp"
-        android:onClick="clickAdd1"
-        android:text="新增聯絡人"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView"
-        app:layout_constraintVertical_bias="0.529" />
-
-    <Button
-        android:id="@+id/button"
+        android:id="@+id/button21"
         android:layout_width="130dp"
         android:layout_height="70dp"
         android:layout_marginBottom="8dp"

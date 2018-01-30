@@ -19,23 +19,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:id="@+id/button17"
+        android:layout_width="160dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="#fa5e5e"
+        android:background="#f3a778"
         android:text="求救 !!!"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="386dp" />
+        tools:layout_editor_absoluteY="385dp" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/button11"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:background="#70cf6b"
         android:text="LINE"
@@ -44,10 +44,10 @@
         app:layout_constraintTop_toBottomOf="@+id/timePicker2" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/button12"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:background="#e4dc62"
         android:text="相片"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -58,7 +58,7 @@
         android:id="@+id/button13"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
         android:background="@android:color/darker_gray"
         android:text="照相機"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -66,10 +66,10 @@
         tools:layout_editor_absoluteY="285dp" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/button14"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_blue_light"
         android:text="臉書"
@@ -78,10 +78,10 @@
         app:layout_constraintTop_toBottomOf="@+id/timePicker2" />
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/button15"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="24dp"
         android:background="#caa0de"
         android:text="看照片"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -92,8 +92,8 @@
         android:id="@+id/button16"
         android:layout_width="160dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="16dp"
-        android:background="#f0b483"
+        android:layout_marginEnd="24dp"
+        android:background="@color/colorPrimary"
         android:text="帶路回家"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"

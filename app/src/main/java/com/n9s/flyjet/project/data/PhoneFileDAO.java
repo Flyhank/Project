@@ -27,9 +27,9 @@ public class PhoneFileDAO
         this.context = context;
         mylist = new ArrayList<>();
     }
-    public boolean add(Phone s)
+    public boolean add(Phone p)
     {
-        mylist.add(s);
+        mylist.add(p);
         saveFile();
         return true;
     }
@@ -78,27 +78,27 @@ public class PhoneFileDAO
         load();
         return mylist;
     }
-    public Phone getStudent(int id)
+    public Phone getPhone(int id)
     {
         load();
-        for (Phone s : mylist)
+        for (Phone p : mylist)
         {
-            if (s.id == id)
+            if (p.id == id)
             {
-                return s;
+                return p;
             }
         }
         return null;
     }
-    public boolean update(Phone s)
+    public boolean update(Phone p)
     {
         load();
         for (Phone t : mylist)
         {
-            if (t.id == s.id)
+            if (t.id == p.id)
             {
-                t.name = s.name;
-                t.tel = s.tel;
+                t.name = p.name;
+                t.tel = p.tel;
                 saveFile();
                 return true;
             }
