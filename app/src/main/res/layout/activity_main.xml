@@ -128,7 +128,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="13dp"
         android:background="#9cbfea"
-        android:onClick="clcikFun"
+        android:onClick="clickFun"
         android:text="其他功能"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toBottomOf="parent"
