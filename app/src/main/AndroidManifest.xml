@@ -3,10 +3,17 @@
     package="com.n9s.flyjet.project">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    //3G4GWifi Permission
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    //GPS Permission
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    //Internet Permission
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    //SMS Permission
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:allowBackup="true"
@@ -18,14 +25,22 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                //
+                <category android:name="android.intent.category.HOME" />
+                //My Launcher
+                //
+                <category android:name="android.intent.category.DEFAULT" />
+                //My Launcher
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".DetailActivity" />
         <activity android:name=".EditActivity" />
         <activity android:name=".Main2Activity" />
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".ListActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".GalleryActivity" />
+        <activity android:name=".NavigationActivity"></activity>
     </application>
 
 </manifest>

@@ -41,7 +41,7 @@
             android:layout_height="120dp"
             android:layout_weight="1"
             android:onClick="clickFone4"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button5"
@@ -49,7 +49,7 @@
             android:layout_height="120dp"
             android:layout_weight="1"
             android:onClick="clickFone5"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button6"
@@ -57,7 +57,7 @@
             android:layout_height="120dp"
             android:layout_weight="1"
             android:onClick="clickFone6"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
     </LinearLayout>
 
     <Button
@@ -96,7 +96,7 @@
             android:layout_height="120dp"
             android:layout_weight="1"
             android:onClick="clickFone1"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button2"
@@ -104,7 +104,7 @@
             android:layout_height="120dp"
             android:layout_weight="1"
             android:onClick="clickFone2"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button3"
@@ -112,7 +112,7 @@
             android:layout_height="120dp"
             android:layout_weight="1"
             android:onClick="clickFone3"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
     </LinearLayout><![CDATA[
 
@@ -139,6 +139,7 @@
         android:onClick="clickFun"
         android:text="其他功能"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -155,6 +156,7 @@
         android:background="#efe3b6"
         android:onClick="clickContact"
         android:text="設定聯絡人"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.754"
         app:layout_constraintStart_toEndOf="@+id/button16"

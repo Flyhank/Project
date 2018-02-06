@@ -3,7 +3,9 @@ package com.n9s.flyjet.project;
 import android.Manifest;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -20,7 +22,9 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -34,6 +38,7 @@ public class Main2Activity extends AppCompatActivity {
     LocationManager lm;
     Address addr;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,12 +47,6 @@ public class Main2Activity extends AppCompatActivity {
         lm = (LocationManager) getSystemService(LOCATION_SERVICE);
     }
 
-    public void clickPic(View v) {
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(i, 11);
-    }
 
     public void clickCam(View v) {
         //Intent i = new Intent(Intent.ACTION_CAMERA_BUTTON, null);     //相機noise出現
@@ -67,6 +66,28 @@ public class Main2Activity extends AppCompatActivity {
         startActivity(it);
     }
 
+    public void clickSethome(View v)
+    {
+        Intent it = new Intent(Main2Activity.this, HomeActivity.class);
+        startActivity(it);
+    }
+
+    public void clickPic(View v)
+    {
+        Intent it = new Intent(Main2Activity.this, GalleryActivity.class);
+        startActivity(it);
+
+        //Intent i = new Intent();      //僅能出現圖片集(小圖),
+        //i.setType("image/*");
+        //i.setAction(Intent.ACTION_GET_CONTENT);
+        //startActivityForResult(i, 11);
+
+        //Intent intent = new Intent();     //僅能出現圖片集(小圖),不能點開
+        //intent.setAction(android.content.Intent.ACTION_GET_CONTENT);
+        //intent.setType("image/*");
+        //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //startActivity(intent);
+    }
 
 
 /*    public void clickLine(View v)
@@ -145,19 +166,26 @@ public class Main2Activity extends AppCompatActivity {
     {
         @Override
         public void onLocationChanged(Location location)
+        //public boolean onMyLocationButtonClick(Location location)
         {
             Geocoder geocoder = new Geocoder(Main2Activity.this);
             try
             {
-                List<Address> mylist2 = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                addr = mylist2.get(0);
-                Log.d("LOC", addr.getAddressLine(0));
+                //if (location != null)
+                //{
+                    List<Address> mylist2 = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                    addr = mylist2.get(0);
+                    Log.d("LOC", addr.getAddressLine(0));
 
-                Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
-                smsIntent.setType("vnd.android-dir/mms-sms");
-                smsIntent.putExtra("address", dao.getList().get(0).tel.toString()+";"+dao.getList().get(1).tel.toString());
-                smsIntent.putExtra("sms_body", "我需要幫忙!! 位置在: "+addr.getAddressLine(0)+"; (緯度: "+location.getLatitude()+"; "+"經度: "+location.getLongitude()+"). "+", 請快點過來幫我!!!");
-                startActivity(smsIntent);
+                    Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
+                    smsIntent.setType("vnd.android-dir/mms-sms");
+                    smsIntent.putExtra("address", dao.getList().get(0).tel.toString() + ";" + dao.getList().get(1).tel.toString());
+                    smsIntent.putExtra("sms_body", "我需要幫忙!! 位置在: " + addr.getAddressLine(0) + "; (緯度: " + location.getLatitude() + "; " + "經度: " + location.getLongitude() + "). " + ", 請快點過來幫我!!!");
+                    startActivity(smsIntent);
+                //}
+                //else
+                //{
+                //}
             }
             catch (IOException e)
             {
@@ -180,12 +208,16 @@ public class Main2Activity extends AppCompatActivity {
 
         }
 
-
-
     }
 
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public void clickNavg(View v)
     {
+/*        SharedPreferences sp = getSharedPreferences("myhome", MODE_PRIVATE); //從手機資料夾內取出家的地址
+        String str = sp.getString("data1", "");
+        Log.d("LOC", str);
+        Uri uri;
+
         if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
         {
             ActivityCompat.requestPermissions(this, new String[] {ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, 321);
@@ -193,11 +225,16 @@ public class Main2Activity extends AppCompatActivity {
         }
         else
         {
-            startLoc();
-        }
+*/
+        //startLoc();
+
         //Uri uri = Uri.parse("https://www.google.com.tw/maps/dir/220台灣新北市莊敬路8號/220新北市板橋區文化路二段522號");
-        Uri uri = Uri.parse("https://www.google.com.tw/maps/dir/"+addr.getAddressLine(0)+"/220新北市板橋區文化路二段522號");
-        Intent it = new Intent(Intent.ACTION_VIEW, uri);
+        //Uri uri = Uri.parse("https://www.google.com.tw/maps/dir/" + addr.getAddressLine(0) + "/220新北市板橋區文化路二段522號");
+        //Intent it = new Intent(Intent.ACTION_VIEW, uri);
+        //startActivity(it);
+    //}
+
+        Intent it = new Intent(Main2Activity.this, NavigationActivity.class);
         startActivity(it);
     }
 

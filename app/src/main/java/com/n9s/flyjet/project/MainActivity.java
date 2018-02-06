@@ -47,12 +47,12 @@ public class MainActivity extends AppCompatActivity
         dao = new PhoneFileDAO(this);
         if(dao.getList().size()==0)
         {
-            dao.add(new Phone(1, "聯絡人名字", "0000000000"));
-            dao.add(new Phone(2, "聯絡人名字", "0000000000"));
-            dao.add(new Phone(3, "聯絡人名字", "0000000000"));
-            dao.add(new Phone(4, "聯絡人名字", "0000000000"));
-            dao.add(new Phone(5, "聯絡人名字", "0000000000"));
-            dao.add(new Phone(6, "聯絡人名字", "0000000000"));
+            dao.add(new Phone(1, "小明", "0920123456"));
+            dao.add(new Phone(2, "小美", "0932135246"));
+            dao.add(new Phone(3, "聯絡人", "0000000000"));
+            dao.add(new Phone(4, "聯絡人", "0000000000"));
+            dao.add(new Phone(5, "聯絡人", "0000000000"));
+            dao.add(new Phone(6, "聯絡人", "0000000000"));
         }
     }
 

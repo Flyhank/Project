@@ -10,12 +10,10 @@
         android:id="@+id/timePicker2"
         android:layout_width="250dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:background="#ffdd33"
         android:headerBackground="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +22,7 @@
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="8dp"
         android:background="#FFFC5243"
         android:onClick="clickSOS2"
@@ -42,12 +40,12 @@
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="#70cf6b"
         android:onClick="clickPic"
         android:text="相片庫"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timePicker2" />
 
@@ -61,7 +59,7 @@
         android:onClick="clickRecord"
         android:text="錄音機"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button11" />
 
@@ -69,9 +67,9 @@
         android:id="@+id/button18"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:background="#cac6c6"
         android:onClick="clickPhone"
         android:text="打電話"
@@ -80,33 +78,33 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button16"
-        app:layout_constraintVertical_bias="0.741" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/button14"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
         android:background="@android:color/holo_blue_light"
         android:onClick="clickFB"
         android:text="臉書"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker2" />
+        app:layout_constraintTop_toBottomOf="@+id/button13" />
 
     <Button
         android:id="@+id/button15"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:background="#f2a765"
         android:onClick="clickCam"
         android:text="照相機"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button14" />
 
@@ -114,13 +112,13 @@
         android:id="@+id/button16"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:background="@color/colorPrimary"
         android:onClick="clickNavg"
         android:text="回家路徑"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button15" />
 
@@ -131,7 +129,20 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:background="#caa0de"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button12" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#98e1e2"
+        android:onClick="clickSethome"
+        android:text="設定家的地址"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
