@@ -25,7 +25,7 @@ import static com.n9s.flyjet.project.MainActivity.dao;
 
 public class NavigationActivity extends AppCompatActivity
 {
-
+    MyListener listener;
     LocationManager lm;
     Address addr;
 
@@ -34,7 +34,7 @@ public class NavigationActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-
+        listener = new MyListener();
         lm = (LocationManager) getSystemService(LOCATION_SERVICE);
     }
 
@@ -75,7 +75,7 @@ public class NavigationActivity extends AppCompatActivity
         {
             return;
         }
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new NavigationActivity.MyListener());
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
     }
 
     class MyListener implements LocationListener
@@ -87,6 +87,7 @@ public class NavigationActivity extends AppCompatActivity
             try
             {
                 List<Address> mylist2 = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                lm.removeUpdates(listener);
                 addr = mylist2.get(0);
                 Log.d("LOC", addr.getAddressLine(0));
 

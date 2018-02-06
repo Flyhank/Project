@@ -37,6 +37,7 @@ import static com.n9s.flyjet.project.MainActivity.dao;
 public class Main2Activity extends AppCompatActivity {
     LocationManager lm;
     Address addr;
+    MyListener listener;
 
 
     @Override
@@ -44,6 +45,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        listener = new MyListener();
         lm = (LocationManager) getSystemService(LOCATION_SERVICE);
     }
 
@@ -159,33 +161,27 @@ public class Main2Activity extends AppCompatActivity {
         {
             return;
         }
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new Main2Activity.MyListener());
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
     }
 
     class MyListener implements LocationListener
     {
         @Override
         public void onLocationChanged(Location location)
-        //public boolean onMyLocationButtonClick(Location location)
         {
             Geocoder geocoder = new Geocoder(Main2Activity.this);
             try
             {
-                //if (location != null)
-                //{
-                    List<Address> mylist2 = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    addr = mylist2.get(0);
-                    Log.d("LOC", addr.getAddressLine(0));
+                List<Address> mylist2 = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                lm.removeUpdates(listener);
+                addr = mylist2.get(0);
+                Log.d("LOC", addr.getAddressLine(0));
 
-                    Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
-                    smsIntent.setType("vnd.android-dir/mms-sms");
-                    smsIntent.putExtra("address", dao.getList().get(0).tel.toString() + ";" + dao.getList().get(1).tel.toString());
-                    smsIntent.putExtra("sms_body", "我需要幫忙!! 位置在: " + addr.getAddressLine(0) + "; (緯度: " + location.getLatitude() + "; " + "經度: " + location.getLongitude() + "). " + ", 請快點過來幫我!!!");
-                    startActivity(smsIntent);
-                //}
-                //else
-                //{
-                //}
+                Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
+                smsIntent.setType("vnd.android-dir/mms-sms");
+                smsIntent.putExtra("address", dao.getList().get(0).tel.toString() + ";" + dao.getList().get(1).tel.toString());
+                smsIntent.putExtra("sms_body", "我需要幫忙!! 位置在: " + addr.getAddressLine(0) + "; (緯度: " + location.getLatitude() + "; " + "經度: " + location.getLongitude() + "). " + ", 請快點過來幫我!!!");
+                startActivity(smsIntent);
             }
             catch (IOException e)
             {
@@ -232,7 +228,8 @@ public class Main2Activity extends AppCompatActivity {
         //Uri uri = Uri.parse("https://www.google.com.tw/maps/dir/" + addr.getAddressLine(0) + "/220新北市板橋區文化路二段522號");
         //Intent it = new Intent(Intent.ACTION_VIEW, uri);
         //startActivity(it);
-    //}
+    //}                  Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
+
 
         Intent it = new Intent(Main2Activity.this, NavigationActivity.class);
         startActivity(it);

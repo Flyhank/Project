@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity
     ArrayList<String> phoneNames;   //陣列
     //ArrayAdapter<String> adapter;   //工具
     LocationManager lm;
+    Address addr;
+    MyListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         lm = (LocationManager) getSystemService(LOCATION_SERVICE);
+        listener = new MyListener();
 
         dao = new PhoneFileDAO(this);
         if(dao.getList().size()==0)
@@ -162,14 +165,14 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void startLoc()
+    public void startLoc()
     {
         if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-            && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
         {
             return;
         }
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new MyListener());
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
     }
 
     class MyListener implements LocationListener
@@ -181,13 +184,14 @@ public class MainActivity extends AppCompatActivity
             try
             {
                 List<Address> mylist2 = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                Address addr = mylist2.get(0);
+                lm.removeUpdates(listener);
+                addr = mylist2.get(0);
                 Log.d("LOC", addr.getAddressLine(0));
 
                 Intent smsIntent = new Intent(android.content.Intent.ACTION_VIEW);
                 smsIntent.setType("vnd.android-dir/mms-sms");
-                smsIntent.putExtra("address", dao.getList().get(0).tel.toString()+";"+dao.getList().get(1).tel.toString());
-                smsIntent.putExtra("sms_body", "我需要幫忙!! 位置在: "+addr.getAddressLine(0)+"; (緯度: "+location.getLatitude()+"; "+"經度: "+location.getLongitude()+"). "+", 請快點過來幫我!!!");
+                smsIntent.putExtra("address", dao.getList().get(0).tel.toString() + ";" + dao.getList().get(1).tel.toString());
+                smsIntent.putExtra("sms_body", "我需要幫忙!! 位置在: " + addr.getAddressLine(0) + "; (緯度: " + location.getLatitude() + "; " + "經度: " + location.getLongitude() + "). " + ", 請快點過來幫我!!!");
                 startActivity(smsIntent);
             }
             catch (IOException e)
@@ -210,7 +214,6 @@ public class MainActivity extends AppCompatActivity
         {
 
         }
-
     }
 
 
